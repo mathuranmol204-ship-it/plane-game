@@ -7,3 +7,9 @@ function fly() {
 }
 
 setInterval(fly, 100);
+let gameStarted = false;
+
+document.getElementById("startBtn").addEventListener("click", function() {
+  gameStarted = true;
+  this.style.display = "none";
+});
