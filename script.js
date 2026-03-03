@@ -24,8 +24,7 @@ document.getElementById("startBtn").addEventListener("click", function() {
   this.style.display = "none";
 });
 
-// Keyboard movement
-document.addEventListener("keydown", function(event) {
+// Keyboard", function(event) {
 
   if (!gameStarted) return; // jab tak start nahi dabaya, kuch nahi hoga
 
@@ -52,30 +51,28 @@ let gameStarted = false;
 let gameInterval;
 
 // Start button
-document.getElementById("startBtn").addEventListener("click", function() {
-  gameStarted = true;
-  this.style.display = "none";
+document.getElementById("startBtn")
+window.onload = function() {
 
-  // Plane automatic aage badhe
-  gameInterval = setInterval(function() {
-    if (gameStarted) {
+  let plane = document.getElementById("plane");
+  let positionX = 100;
+  let positionY = 200;
+  let gameStarted = false;
+  let gameInterval;
+
+  plane.style.left = positionX + "px";
+  plane.style.top = positionY + "px";
+
+  document.getElementById("startBtn").addEventListener("click", function() {
+
+    gameStarted = true;
+    this.style.display = "none";
+
+    gameInterval = setInterval(function() {
       positionX += 5;
       plane.style.left = positionX + "px";
-    }
-  }, 50);
-});
+    }, 50);
 
-// Keyboard control
-document.addEventListener("keydown", function(event) {
+  });
 
-  if (!gameStarted) return;
-
-  if (event.key === "ArrowUp") {
-    positionY -= 10;
-  }
-  if (event.key === "ArrowDown") {
-    positionY += 10;
-  }
-
-  plane.style.top = positionY + "px";
-});
+};
