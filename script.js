@@ -1,4 +1,4 @@
-let plane = document.getElementById("plane");
+bhlet plane = document.getElementById("plane");
 let position = 0;
 
 function fly() {
@@ -43,5 +43,39 @@ document.addEventListener("keydown", function(event) {
   }
 
   plane.style.left = positionX + "px";
+  plane.style.top = positionY + "px";
+});
+let plane = document.getElementById("plane");
+let positionX = 100;
+let positionY = 200;
+let gameStarted = false;
+let gameInterval;
+
+// Start button
+document.getElementById("startBtn").addEventListener("click", function() {
+  gameStarted = true;
+  this.style.display = "none";
+
+  // Plane automatic aage badhe
+  gameInterval = setInterval(function() {
+    if (gameStarted) {
+      positionX += 5;
+      plane.style.left = positionX + "px";
+    }
+  }, 50);
+});
+
+// Keyboard control
+document.addEventListener("keydown", function(event) {
+
+  if (!gameStarted) return;
+
+  if (event.key === "ArrowUp") {
+    positionY -= 10;
+  }
+  if (event.key === "ArrowDown") {
+    positionY += 10;
+  }
+
   plane.style.top = positionY + "px";
 });
