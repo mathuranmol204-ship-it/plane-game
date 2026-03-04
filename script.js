@@ -76,3 +76,4 @@ window.onload = function() {
   });
 
 };
+document.getElementById('bgMusic').play();
